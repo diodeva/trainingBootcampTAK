@@ -4,7 +4,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
-class TestLogin(unittest.TestCase):
+class TestRegister(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Edge(EdgeChromiumDriverManager().install())
@@ -13,6 +13,7 @@ class TestLogin(unittest.TestCase):
     def test_empty_firstname(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/")
+        driver.find_element(By.CLASS_NAME, "ico-register").click()
         driver.find_element(By.ID, "FirstName").send_keys("")
         driver.find_element(By.ID, "LastName").send_keys("One")
         driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
@@ -23,6 +24,7 @@ class TestLogin(unittest.TestCase):
     def test_empty_lastname(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/")
+        driver.find_element(By.CLASS_NAME, "ico-register").click()
         driver.find_element(By.ID, "FirstName").send_keys("Tester")
         driver.find_element(By.ID, "LastName").send_keys("")
         driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
@@ -33,6 +35,7 @@ class TestLogin(unittest.TestCase):
     def test_empty_email(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/")
+        driver.find_element(By.CLASS_NAME, "ico-register").click()
         driver.find_element(By.ID, "FirstName").send_keys("Tester")
         driver.find_element(By.ID, "LastName").send_keys("One")
         driver.find_element(By.ID, "Email").send_keys("")
@@ -43,6 +46,7 @@ class TestLogin(unittest.TestCase):
     def test_wrong_format_email(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/")
+        driver.find_element(By.CLASS_NAME, "ico-register").click()
         driver.find_element(By.ID, "FirstName").send_keys("Tester")
         driver.find_element(By.ID, "LastName").send_keys("One")
         driver.find_element(By.ID, "Email").send_keys("superQAgmailcom")
@@ -53,6 +57,7 @@ class TestLogin(unittest.TestCase):
     def test_empty_confirmpassword(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/")
+        driver.find_element(By.CLASS_NAME, "ico-register").click()
         driver.find_element(By.ID, "FirstName").send_keys("Tester")
         driver.find_element(By.ID, "LastName").send_keys("One")
         driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
@@ -63,6 +68,7 @@ class TestLogin(unittest.TestCase):
     def test_password_not_match(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/")
+        driver.find_element(By.CLASS_NAME, "ico-register").click()
         driver.find_element(By.ID, "FirstName").send_keys("Tester")
         driver.find_element(By.ID, "LastName").send_keys("One")
         driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
@@ -73,6 +79,7 @@ class TestLogin(unittest.TestCase):
     def test_success_register(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/")
+        driver.find_element(By.CLASS_NAME, "ico-register").click()
         driver.find_element(By.ID, "FirstName").send_keys("Tester")
         driver.find_element(By.ID, "LastName").send_keys("One")
         driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
