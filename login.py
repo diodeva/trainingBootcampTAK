@@ -53,9 +53,16 @@ class TestLogin(unittest.TestCase):
         driver.find_element(By.ID, "Email").send_keys("superQAgmail.com")
         driver.find_element(By.ID, "Password").send_keys("super123")
         driver.find_element(By.CLASS_NAME, "button-1.login-button").click()
-        data = driver.find_element(By.CLASS_NAME, "validation-summary-errors").text
+        wait = WebDriverWait(driver, 10)
+
+        # specify the element to wait for using a tuple of the locator strategy and the selector
+        element = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".validation-summary-errors span")))
+
+        # once the element is visible, you can interact with it as needed
+        element.click()
+        # data = driver.find_element(By.CSS_SELECTOR, ".validation-summary-errors span").text
         self.assertIn("Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect", data)
-        verify = driver.find_element(By.CLASS_NAME, "field-validation-error").text
+        verify = driver.find_element(By.CSS_SELECTOR, "field-validation-error").text
         self.assertIn("Please enter a valid email address.", verify)
         driver.minimize_window()
 
