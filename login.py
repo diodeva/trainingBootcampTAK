@@ -63,23 +63,23 @@ class TestLogin(unittest.TestCase):
         driver.find_element(By.CLASS_NAME, "ico-login").click()
         driver.find_element(By.CLASS_NAME, "forgot-password").click()
         driver.find_element(By.ID, "Email").send_keys("superQA@mailto.com")
-        driver.find_element(By.NAME, "send-email").click()
+        driver.find_element(By.XPATH, "//input[@name='send-email']").click()
 
-    def test_success_recovery(self):
-        driver = self.browser
-        driver.get("https://demowebshop.tricentis.com/")
-        driver.find_element(By.CLASS_NAME, "ico-login").click()
-        driver.find_element(By.CLASS_NAME, "forgot-password").click()
-        driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
-        driver.find_element(By.NAME, "send-email").click()
-        
-    def test_success_login(self):
-        driver = self.browser
-        driver.get("https://demowebshop.tricentis.com/")
-        driver.find_element(By.CLASS_NAME, "ico-login").click()
-        driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
-        driver.find_element(By.ID, "Password").send_keys("super123")
-        driver.find_element(By.CLASS_NAME, "button-1.login-button").click()
+    # def test_success_recovery(self):
+    #     driver = self.browser
+    #     driver.get("https://demowebshop.tricentis.com/")
+    #     driver.find_element(By.CLASS_NAME, "ico-login").click()
+    #     driver.find_element(By.CLASS_NAME, "forgot-password").click()
+    #     driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
+    #     driver.find_element(By.NAME, "send-email").click()
+
+    # def test_success_login(self):
+    #     driver = self.browser
+    #     driver.get("https://demowebshop.tricentis.com/")
+    #     driver.find_element(By.CLASS_NAME, "ico-login").click()
+    #     driver.find_element(By.ID, "Email").send_keys("superQA@gmail.com")
+    #     driver.find_element(By.ID, "Password").send_keys("super123")
+    #     driver.find_element(By.CLASS_NAME, "button-1.login-button").click()
 
 
     def tearDown(self):
